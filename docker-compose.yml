@@ -1,0 +1,10 @@
+version: "3.4"
+services:
+  tesseract:
+    build: tesseract
+    image: inception/tesseract
+    command: uwsgi --socket 0.0.0.0:8888 --protocol=http -w wsgi:app
+    volumes:
+      - ./tesseract:/app
+    ports:
+      - 8888:8888
