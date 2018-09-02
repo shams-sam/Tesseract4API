@@ -1,5 +1,3 @@
-# use tesseract 4 
-# reference: https://github.com/tesseract-shadow/tesseract-ocr-re
 FROM tesseractshadow/tesseract4re
 
 RUN apt-get update && \
