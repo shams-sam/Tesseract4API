@@ -2,6 +2,7 @@
 Flask-Uwsgi based endpoints for pytesseract wrapper using Tesseract 4
 
 ### References:
+- [Tesseract-OCR Command Line Usage](https://github.com/tesseract-ocr/tesseract/wiki/Command-Line-Usage)
 - [Pytesseract](https://pypi.org/project/pytesseract/)
 - [Tesseract 4 Docker](https://github.com/tesseract-shadow/tesseract-ocr-re)
 - [Flask on Uwsgi](https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-uwsgi-and-nginx-on-ubuntu-16-04)
@@ -38,4 +39,11 @@ r = requests.post('http://tesseract:8888/image_to_string', files={'file': image}
 r = requests.post('http://<local_or_aws_endpoint>:8888/image_to_string', files={'file': image})
 
 print(r.text)
+
+# if calling to get readable pdf
+r = requests.post('http://<local_or_aws_endpoint>:8888/image_to_readable_pdf', files={'file': image})
+
+# save the readable pdf
+with open('output.pdf', 'wb') as f:
+    f.write(r.content)
 ```
